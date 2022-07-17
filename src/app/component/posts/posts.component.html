@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-md-5 mt-4" >
+      <div *ngFor="let post of posts">
+        <div class="card my-3 shadow">
+          <img
+            [src]="post.imageURL || defaultImage + post.userName"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body">
+            <h1 class="card-title">{{ post.userName }}</h1>
+            <p class="card-text">{{ post.description }}</p>
+            <hr />
+            
+              <button  (click)="likeButtonClick($event)" type="button" class="btn position-relative" [ngClass]="likeButtonClass()">
+                <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {{post.likes}}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+           
+            <button class="btn text-secondary mx-2">
+              <i class="fa fa-comment-o fa-2x" aria-hidden="true"></i>
+            </button>
+            <button class="btn text-info">
+              <i class="fa fa-share-alt-square fa-2x" aria-hidden="true"></i>
+            </button>
+            <button
+              (click)="deletePost(post.postID)"
+              class="btn text-danger mx-2"
+            >
+              <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

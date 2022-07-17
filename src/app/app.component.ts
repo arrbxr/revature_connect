@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PostsService } from './services/posts.service';
+
+declare var window:any;
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'newFronted';
+  title = 'Revature Connector';
+
+  constructor() { }
+
 }

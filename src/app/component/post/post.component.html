@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <div class="row mt-5">
+    <div class="col"></div>
+    <div class="col-md-5 shadow p-5 mt-5">
+      <form (ngSubmit)="onSubmit(formValue)" #formValue="ngForm">
+        <div class="row">
+          <h1>Create Post</h1>
+        </div>
+
+        <div class="row mb-3">
+          <input
+            placeholder="Your Name"
+            required
+            #name="ngModel"
+            name="userName"
+            type="text"
+            class="form-control"
+            ngModel
+          />
+          <!-- <span *ngIf="name.invalid" class="form-text text-danger">Name is required</span> -->
+        </div>
+
+        <!-- <div class="mb-3 row">
+                  <label for="title">Image url</label>
+                  <input name="imageURL" type="text" class="form-control" ngModel required>
+                </div>
+     -->
+        <div class="mb-3 row">
+          <textarea
+            required
+            #name="ngModel"
+            placeholder="Message..."
+            name="description"
+            class="form-control"
+            ngModel
+          ></textarea>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="title"></label>
+          <input
+            required
+            #name="ngModel"
+            placeholder="Image url..."
+            name="postImgURL"
+            type="text"
+            class="form-control"
+            ngModel
+          />
+        </div>
+
+        <div class="row">
+          <button
+            type="submit"
+            [ngClass]="{
+              'btn btn-primary p-2': formValue.valid,
+              'btn btn-danger disabled': formValue.invalid
+            }"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
