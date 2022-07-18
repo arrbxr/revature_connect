@@ -14,8 +14,8 @@
             <p class="card-text">{{ post.description }}</p>
             <hr />
             
-              <button  (click)="likeButtonClick($event)" type="button" class="btn position-relative" [ngClass]="likeButtonClass()">
-                <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+              <button  (click)="likeButtonClick(post)" type="button" class="btn position-relative" [ngClass]="likeButtonClass(post)">
+                <i class="fa fa-thumbs-o-up fa-2x"  aria-hidden="true"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {{post.likes}}
                   <span class="visually-hidden">unread messages</span>

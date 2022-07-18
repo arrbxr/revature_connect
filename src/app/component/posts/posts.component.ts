@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { PostsService } from '../../services/posts.service';
@@ -8,31 +9,40 @@ import { PostsService } from '../../services/posts.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  constructor(private postService: PostsService) { }
+  constructor(private postService: PostsService, private router: Router) { }
 
   defaultImage: string = 'https://fakeimg.pl/350x200/?text=';
 
   posts: any[] = [];
 
   ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData(){
     this.postService.getAllPosts().subscribe((data) => {
       this.posts = data;
       console.log(data);
     });
   }
 
-  deletePost(id: string) {
+  deletePost(id: number) {
     this.postService.deletePost(id).subscribe((data) => {
       console.log(data);
-      this.posts = this.posts.filter((post) => post.postID !== id);
-    });
+      this.posts = this.posts.filter((post) => post.id != id);
+      this.reloadData();
+    },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-  likeButtonClick(val: any) {
-    console.log(val)
+  likeButtonClick(post: any) {
+    post.likes == 0 ? post.likes = 1 : post.likes = 0;
   }
 
-  likeButtonClass() {
-    return "text-sucees";
+  likeButtonClass(post: any) {
+    return (post.likes) == 0 ? 'text-seconday' : 'text-suceess'
   }
 }

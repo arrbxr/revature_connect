@@ -23,8 +23,7 @@ export class PostsService {
   }
 
   deletePost(post: any): Observable <any>{
-    console.log(post);
-    return this.http.delete(this.deleteUrl.replace("{id}", post.ID));
+    return this.http.delete(this.deleteUrl.replace("{id}", post));
   }
 
 

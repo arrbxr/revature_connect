@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { PostsComponent } from './component/posts/posts.component';
 import { PostComponent } from './component/post/post.component';
+import { LikePipe } from './pipes/like.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    PostComponent
+    PostComponent,
+    LikePipe
   ],
   imports: [
     BrowserModule,
