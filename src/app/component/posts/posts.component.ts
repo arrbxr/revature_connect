@@ -29,7 +29,6 @@ export class PostsComponent implements OnInit {
   deletePost(id: number) {
     this.postService.deletePost(id).subscribe((data) => {
       console.log(data);
-      this.posts = this.posts.filter((post) => post.id != id);
       this.reloadData();
     },
       (error) => {
@@ -39,10 +38,7 @@ export class PostsComponent implements OnInit {
   }
 
   likeButtonClick(post: any) {
-    post.likes == 0 ? post.likes = 1 : post.likes = 0;
+    post.likes == 0 ? post.likes++ : post.likes = 0;
   }
 
-  likeButtonClass(post: any) {
-    return (post.likes) == 0 ? 'text-seconday' : 'text-suceess'
-  }
 }

@@ -12,13 +12,17 @@ import { FormsModule } from '@angular/forms';
 import { PostsComponent } from './component/posts/posts.component';
 import { PostComponent } from './component/post/post.component';
 import { LikePipe } from './pipes/like.pipe';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     PostComponent,
-    LikePipe
+    LikePipe,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

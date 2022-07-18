@@ -1,3 +1,5 @@
+
+<app-navbar></app-navbar>
 <div class="container mt-5">
   <div class="row">
     <div class="col"></div>
@@ -14,7 +16,7 @@
             <p class="card-text">{{ post.description }}</p>
             <hr />
             
-              <button  (click)="likeButtonClick(post)" type="button" class="btn position-relative" [ngClass]="likeButtonClass(post)">
+              <button  (click)="likeButtonClick(post)" type="button" class="btn position-relative">
                 <i class="fa fa-thumbs-o-up fa-2x"  aria-hidden="true"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {{post.likes}}
